@@ -1,0 +1,104 @@
+footer.sticky-footer {
+    width: calc(100%);
+    height: 45px !important;
+}
+
+/*! Fieldset Border */
+fieldset.product_border {
+    border: 1px groove #ddd !important;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin: 0 0 1.5em 0 !important;
+    -webkit-box-shadow:  0px 0px 0px 0px #000;
+            box-shadow:  0px 0px 0px 0px #000;
+}
+
+/*! Fieldset's Legend Border */
+legend.product_border {
+    font-size: 1.2em !important;
+    font-weight: bold !important;
+    text-align: left !important;
+    width:auto;
+    padding:0 10px;
+    border-bottom:none;
+}
+
+legend {
+    color: darkslategrey !important;
+}
+.form-control:disabled, .form-control[readonly] {
+    background-color: whitesmoke !important;
+
+}
+body {
+    font-size: small !important;
+}
+
+.custom-select-sm {
+    height: calc(1em + 0.5rem + 2px) !important;
+    padding-top: 0rem !important;
+    padding-bottom: 0rem !important;
+    font-size: 0.75rem !important;
+
+}
+.form-control-sm {
+    height: calc(1em + 0.5rem + 2px) !important;
+    font-size: 0.75rem !important;
+}
+.fa, .fab, .fad, .fal, .far, .fas {
+    line-height:0 !important;
+}
+.cursor{
+    cursor:pointer;
+}
+
+.input-group-text {
+    line-height: 0.7rem !important;
+    font-size: 0.750rem !important;
+}
+@media (min-width: 768px){
+#teminatDiv .col-md-3 {
+    max-width: 20% !important;
+    }
+}
+/*! Error Div */
+#errorDiv {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    position: absolute !important;
+    right: 0 !important;
+    bottom: 3.5% !important;
+    width: 100% !important;
+}
+
+@media(max-width: 768px ){
+#errorDiv {
+    bottom: 2% !important;
+    overflow-y: scroll !important;
+    height: 12% !important;
+
+    }
+}
+
+/*! Autocomplete Scroll Css */
+.ui-autocomplete {
+    max-height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  * html .ui-autocomplete {
+    height: 200px;
+  }
+
+@media(min-width:768px){
+.alert-heading {
+        width: 6% !important;
+    }
+}
+
+@media(min-width:768px){
+.fieldsetClass{
+    height: 460px !important;
+    }
+}
+
