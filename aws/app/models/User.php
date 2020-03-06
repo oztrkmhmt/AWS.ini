@@ -1,16 +1,17 @@
 <?php
 class User {
      
-    private $url = REQUEST_URL;
+    private $url = REQUEST_URL; 
     private $detailsURL = LOGINDETAILS_URL;
     private $userProductsURL = USERPRODUCTS_URL;
     private $policyScreen = POLICYSCREEN_URL;
 
     public function __construct() {
-        
+
     }
     // Get User Hash Code
     public function GetUserHashCode() {
+
         $hashcode = array("username" => $_POST['username'], "password" => $_POST['password']);
         $hashcode_string = json_encode($hashcode);
         $ch = curl_init($this->url);

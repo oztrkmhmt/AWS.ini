@@ -3,25 +3,21 @@
    * App Modal Class
 */
 class Modal {
-    //Error Modal
-    public function GetModal($title,$modalID,$inputID){
+    public function GetModal($title,$modalType,$modalID,$headerColor,$closeBtn,$btnType,$btnText,$setModalBody){
     ?>
     <form action="../users/main" method="post">
         <div class="modal fade bd-example-modal-sm" id="<?php echo($modalID) ?>" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog">
-            <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+            <div class="modal-dialog <?php echo($modalType) ?>" role="document">
                 <div class="modal-content">
-                    <div style="background-color: whitesmoke !important;" class="modal-header">
+                    <div style="background-color:<?php echo($headerColor) ?>" class="modal-header">
                     <h6 style="color:slategray !important" class="modal-title" id="exampleModalLabel"><?php echo($title) ?></h6>
+                    <?php echo($closeBtn) ?>
                     </div>
                     <div class="modal-body">
-                        <div class="form-group row">
-                            <div class="col-sm-12">
-                                <input type="text" class="form-control form-control-sm" onkeydown="return event.keyCode !== 69" name="kimlikno" minlength="11" maxlength="11" id="<?php echo($inputID) ?>" placeholder="T.C. Kimlik No" value="" required>
-                            </div>
-                        </div>
+                        <?php echo($setModalBody) ?>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-secondary btn-sm">Ara</button>
+                        <button type="submit" class="<?php echo($btnType) ?>"><?php echo($btnText) ?></button>
                     </div>
                 </div>
             </div>
@@ -31,5 +27,3 @@ class Modal {
     }
 }
 ?>
-
-

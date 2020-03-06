@@ -227,7 +227,7 @@
                                         <select id="edt_ist_BAU" name="edt_ist_BAU" data-toggle="popover" data-placement="top" data-content="Bu alan seçilmesi zorunludur !" data-trigger="hover" class="custom-select custom-select-sm" required>
                                             <?php
                                                 foreach($_SESSION['policyScreen']['police_ist'] as $policeDetail) {
-                                                    if($policeDetail['ist_adi'] == "Kalkış Ülkesi"){
+                                                    if($policeDetail['ist_adi'] == "Kalkiş Ülkesi"){
                                                     foreach($policeDetail['ist_deger_tab'] as $key => $policeList){ 
                                                     $selected='';
                                                     if ($key==$selected){
@@ -442,6 +442,7 @@
                                 </div>
                             </fieldset>
                         </div>
+                        
                         <div class="form-row">
                             <div class="col-md-2 mb-1">
                                 <div class="input-group mb-1" id="inputIcon"></div>
@@ -459,12 +460,12 @@
                             </div>
                         </div>
                         Result:
-                         <div id="log" style="height: 200px; width: 300px; overflow: auto;" class="ui-widget-content"></div>  
-                        <?php
-                            print_r($_SESSION['env']['links'][$_SESSION['env']['db_type']]['fnc_search_cust']);
+                        <div id="log" style="height: 200px; width: 300px; overflow: auto;" class="ui-widget-content"></div>  
+                        <?php GetFuncLink::getfnclink('fnc_search_cust'); 
                             echo "<pre>";
-                            var_dump($_SESSION);
+                            print_r($_SESSION);
                         ?>
+                        <div id="div1"><h2>Change Query</h2></div>
                     </form>
                 </div>
             </div>
@@ -472,12 +473,48 @@
     </div>
 </div>
 <?php }else{} ?>
-<?php Modal::GetModal('Müşteri Arama','tcknoModal','kimlikno')?>
-<?php AlertModal::GetAlertModal('Dikkat !','istAlertModal','Zorunlu Alanlarda Lütfen Seçim Yapınız.','#721c24','white','white')?>
+<?php Modal::GetModal('Müşteri Arama','modal-dialog-centered modal-sm','tcknoModal','whitesmoke','','btn btn-secondary btn-sm','Ara',
+    '<div class="form-group row">
+        <div class="col-sm-12">
+            <input type="text" class="form-control form-control-sm" onkeydown="return event.keyCode !== 69" name="kimlikno" minlength="11" maxlength="11" id="modalsid" placeholder="T.C. Kimlik No" value="" required>
+        </div>
+    </div>')
+?>
+<?php Modal::GetModal('Deneme','modal-dialog-centered','denemeModal','red','<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>','btn btn-primary','Find','Merhaba')
+?>
 <?php Autocomplete::AutoComp(); ?>
 <script src="../js/jquery.min.js"></script>
 <script src="../js/jquery/jquery-editable-select.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
+
+<script>
+    var getLink = '<?php GetFuncLink::getfnclink('fnc_search_cust') ?>'
+    console.log(getLink);
+</script>
+
+<script>
+    $(document).ready(function(){
+    $("#searchDiv").click(function(){
+        $('#denemeModal').modal('show');
+    });
+});
+/*
+$(document).ready(function(){
+  $("#searchDiv").click(function(){
+    $.ajax(
+        {
+            url: '<?php GetFuncLink::getfnclink('fnc_search_cust') ?>', 
+            type: 'POST',
+            success: function(result)
+        {
+      $("#div1").html(result);
+    }});
+  });
+});
+*/
+</script>
 
 <script>
 
@@ -544,6 +581,7 @@ $( function() {
     xInp.setAttribute("id", "Inp_icon_id");
     xInp.setAttribute("class", "form-control form-control-sm");
     yDiv.setAttribute("class","input-group-append");
+    yDiv.setAttribute("id","searchDiv");
     sp.setAttribute("class","input-group-text cursor");
     i.setAttribute("class","fas fa-search");
 
@@ -785,7 +823,7 @@ $( function() {
     <?php echo $_SESSION['policyScreen']['errorMessage'] ?>
 </div>
 <script>
-    <?php if(empty($_SESSION['policyScreen']['errorMessage']) && empty($_SESSION['logindetails']['errorMessage'])){ ?>
+    <?php if(empty($_SESSION['policyScreen']['errorMessage'])){ ?>
         document.getElementById("errorDiv").style.visibility = "hidden";
     <?php }else{ ?>
         document.getElementById("errorDiv").style.visibility = "none";

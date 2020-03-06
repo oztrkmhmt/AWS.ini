@@ -29,7 +29,7 @@ class Users extends Controller {
             }
             // Check errors and load view
             if (empty($data['username_err']) && empty($data['password_err'])) {
-                if ($this->userModel->GetUserHashCode($data)) {
+                if ($this->userModel->GetUserHashCode($data)){
                 } elseif (isset($_SESSION['userDetail']['errorMessage'])) {
                     flash('hata_yakalandi', $_SESSION['userDetail']['errorMessage']);
                     $this->view('users/login', $data);
