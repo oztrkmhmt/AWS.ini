@@ -465,7 +465,6 @@
                             echo "<pre>";
                             print_r($_SESSION);
                         ?>
-                        <div id="div1"><h2>Change Query</h2></div>
                     </form>
                 </div>
             </div>

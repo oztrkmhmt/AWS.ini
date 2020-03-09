@@ -7,8 +7,8 @@
    */
   class Core {
     
-    protected $currentController = 'Users';
-    protected $currentMethod = 'main';
+    protected $currentController = 'main';
+    protected $currentMethod = 'index';
     protected $params = [];
     protected $utils;
     protected $modal;

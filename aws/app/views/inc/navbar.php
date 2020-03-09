@@ -16,10 +16,10 @@
     <ul class="navbar-nav ml-auto ml-md-0">
         <?php if(isset($_SESSION['AWSession'])) : ?>
         <li class="nav-item dropdown no-arrow">
-            <a class="nav-link dropdown-toggle" href="" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <!-- Call login details to navbar-->
-                <?php if(empty($_SESSION['logindetails']['errorMessage'])){ ?>
-                <?php $this->userModel->GetLoginDetails($data);?>
+                <?php if(empty($_SESSION['policyScreen']['errorMessage'])){ ?>
+                <?php $this->loginDetailsModel->GetLoginDetails($data);?>
                 <label style="color:snow !important"><?php Utils::LoginDetailonNavbar($data);?></label>
                 <?php }else{
                     
@@ -43,7 +43,7 @@
                 <i class="fas fa-user-circle fa-fw"></i>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="../users/login" >Kullanıcı Giriş</a>
+                <a class="dropdown-item" href="../policy/login" >Kullanıcı Giriş</a>
             </div>
         </li>
         <?php endif; ?>

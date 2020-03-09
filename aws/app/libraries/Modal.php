@@ -5,7 +5,7 @@
 class Modal {
     public function GetModal($title,$modalType,$modalID,$headerColor,$closeBtn,$btnType,$btnText,$setModalBody){
     ?>
-    <form action="../users/main" method="post">
+    <form action="../policy/main" method="post">
         <div class="modal fade bd-example-modal-sm" id="<?php echo($modalID) ?>" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog">
             <div class="modal-dialog <?php echo($modalType) ?>" role="document">
                 <div class="modal-content">
