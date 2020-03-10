@@ -31,3 +31,27 @@
 <!-- Close Body-->
 </body>
 </html>
+
+<?php if(isLoggedIn()){ ?>
+<script type="text/javascript">
+    var lastMove = 0;
+    var lastTimeout = 0;
+    jQuery(document).ready(function () {
+        $(document).mousemove(function (e) {
+            var currentMove = (new Date()).getTime();
+            if (lastTimeout != 0) {
+                clearTimeout(lastTimeout);
+            }
+            lastMove = currentMove;
+            lastTimeout = setTimeout(function () {
+                var currentMove = (new Date()).getTime();
+                if (currentMove - lastMove > 1500)
+                { <?php  unset($_SESSION['AWSession']);
+                         session_destroy(); ?> 
+                window.location.href = '../users/logout';
+                }
+            }, 600000);
+        });
+    })
+</script>
+<?php } ?>

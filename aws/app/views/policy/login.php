@@ -2,10 +2,9 @@
 
 <style>
 @media(min-width:992px){
-  .btnAlign{
+.btnAlign{
     margin-left: 28% !important;
   }
-
 }
 .dispAlert{
   background-color: transparent !important;
@@ -56,6 +55,7 @@
     </div>
   </div>
 </body>
+
 <?php require APPROOT . '/views/inc/footer.php'; ?>
 <script src="../js/jquery/jquery-3.4.1.slim.min.js"></script>
 <script src="../js/bootstrap-show-password.min.js"></script>
